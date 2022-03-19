@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<br />
+<table class="table">
+  <thead class="thead-primary">
+    <tr>
+      <th scope="col">image</th>
+      <th scope="col">name</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let i of carts">
+      <tr>
+        <td>
+          <img [src]="i.imgurl" style="width: 300px; height: 300px" />
+        </td>
+        <td>{{ i.Name }}</td>
+        <td>{{ i.Price }}</td>
+      </tr>
+    </ng-container>
+    <td class="border border-1">
+      <ng-container *ngIf="carts.length > 0">
+        {{ total_price }}
+      </ng-container>
+    </td>
+  </tbody>
+</table>

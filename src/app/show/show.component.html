@@ -1,0 +1,37 @@
+<div class="container center">
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let i of product">
+        <ng-container *ngIf="select == i.category">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ select }}
+            </div>
+            <div class="card-body" style="background-color: rgb(39, 33, 25)">
+              <img [src]="i.imgurl" style="width: 400px; height: 300px" />
+              <p style="color: white">Name : {{ i.Name }}</p>
+              <hr />
+              <p style="color: white">Price : {{ i.Price }} ₪</p>
+              <hr />
+
+              <p>
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-primary"
+                  [routerLink]="['/product', i.SerialNumber]"
+                >
+                  Details
+                </button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button (click)="add_product(i)" class="btn btn-sm btn-primary">
+                  Add to Cart
+                </button>
+              </p>
+            </div>
+          </div>
+          &nbsp;&nbsp;&nbsp;
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
